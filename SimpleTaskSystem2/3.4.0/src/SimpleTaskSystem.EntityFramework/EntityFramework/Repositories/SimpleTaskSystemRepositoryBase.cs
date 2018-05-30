@@ -4,6 +4,7 @@ using Abp.EntityFramework.Repositories;
 
 namespace SimpleTaskSystem.EntityFramework.Repositories
 {
+    //系统仓储基类，可以在这个基类中添加通用方法
     public abstract class SimpleTaskSystemRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<SimpleTaskSystemDbContext, TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {

@@ -6,6 +6,16 @@ using EntityFramework.DynamicFilters;
 
 namespace SimpleTaskSystem.Migrations
 {
+    // 通过数据迁移配置文件 Code first 生成数据库文件
+    /**
+    *在VS2013底部的“程序包管理器控制台”窗口中，选择默认项目并执行命令“Add-Migration InitialCreate” 
+    * 会在Migrations文件夹下生成一个xxxx-InitialCreate.cs文件
+    * 
+    * 
+    * 在“程序包管理器控制台”执行“Update-Database”，会自动在数据库创建相应的数据表
+    * 
+    * 更新重复上面的操作
+    * **/
     public sealed class Configuration : DbMigrationsConfiguration<SimpleTaskSystem.EntityFramework.SimpleTaskSystemDbContext>, IMultiTenantSeed
     {
         public AbpTenantBase Tenant { get; set; }
