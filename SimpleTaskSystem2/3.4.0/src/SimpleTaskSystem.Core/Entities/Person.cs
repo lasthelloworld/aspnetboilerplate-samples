@@ -1,7 +1,7 @@
 ﻿using Abp.Domain.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SimpleTaskSystem.Models
+namespace SimpleTaskSystem.Entities
 {
     public class Person : Entity
     {

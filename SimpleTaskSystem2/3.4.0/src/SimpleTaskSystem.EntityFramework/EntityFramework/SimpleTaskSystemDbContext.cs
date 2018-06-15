@@ -1,7 +1,9 @@
 ﻿using System.Data.Common;
+using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using SimpleTaskSystem.Authorization.Roles;
 using SimpleTaskSystem.Authorization.Users;
+using SimpleTaskSystem.Entities;//引入实体类库
 using SimpleTaskSystem.MultiTenancy;
 
 namespace SimpleTaskSystem.EntityFramework
@@ -10,7 +12,8 @@ namespace SimpleTaskSystem.EntityFramework
     public class SimpleTaskSystemDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
-
+        public virtual IDbSet<Task> Tasks { get; set; }
+        public virtual IDbSet<Person> People { get; set; }
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not

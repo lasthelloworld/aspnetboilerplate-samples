@@ -3,6 +3,7 @@ using Abp.MultiTenancy;
 using Abp.Zero.EntityFramework;
 using SimpleTaskSystem.Migrations.SeedData;
 using EntityFramework.DynamicFilters;
+using SimpleTaskSystem.Entities;
 
 namespace SimpleTaskSystem.Migrations
 {
@@ -29,6 +30,13 @@ namespace SimpleTaskSystem.Migrations
         protected override void Seed(SimpleTaskSystem.EntityFramework.SimpleTaskSystemDbContext context)
         {
             context.DisableAllFilters();
+
+            //根据创建的实体关系，使用Code First方式创建数据表
+            context.People.AddOrUpdate(
+                   p => p.Name,
+                   new Person { Name = "A" },
+                   new Person { Name = "B"}
+                );
 
             if (Tenant == null)
             {

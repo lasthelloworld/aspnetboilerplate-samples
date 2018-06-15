@@ -179,8 +179,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\Task.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Task.cs" />
     <Compile Include="SimpleTaskSystemConsts.cs" />
     <Compile Include="SimpleTaskSystemCoreModule.cs" />
     <Compile Include="AppVersionHelper.cs" />
