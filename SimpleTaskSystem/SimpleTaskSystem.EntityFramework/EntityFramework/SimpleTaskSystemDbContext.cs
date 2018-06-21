@@ -6,6 +6,7 @@ using SimpleTaskSystem.Tasks;
 
 namespace SimpleTaskSystem.EntityFramework
 {
+    //数据库操作实体框架工作单元和存储库模式的组合，创建实体操作接口IDbSet
     public class SimpleTaskSystemDbContext : AbpDbContext
     {
         public virtual IDbSet<Task> Tasks { get; set; }
