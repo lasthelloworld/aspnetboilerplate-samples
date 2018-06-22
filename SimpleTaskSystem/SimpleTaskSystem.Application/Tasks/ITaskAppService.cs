@@ -19,5 +19,8 @@ namespace SimpleTaskSystem.Tasks
         void UpdateTask(UpdateTaskInput input);
         
         void CreateTask(CreateTaskInput input);
+
+        void DeleteTaskById(DeleteTaskInput input);
+
     }
 }

@@ -88,5 +88,11 @@ namespace SimpleTaskSystem.Tasks
             //Saving entity with standard Insert method of repositories.
             _taskRepository.Insert(task);
         }
+
+        public void DeleteTaskById(DeleteTaskInput input)
+        {
+            Logger.Info("删除一个任务 for input:"+input);
+            _taskRepository.Delete(input.TaskId);
+        }
     }
 }
