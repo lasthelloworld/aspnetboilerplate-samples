@@ -203,6 +203,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="README.md" />
+    <None Include="Tasks\Dtos\readme.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleTaskSystem.Core\SimpleTaskSystem.Core.csproj">

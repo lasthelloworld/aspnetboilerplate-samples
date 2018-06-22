@@ -5,7 +5,7 @@ namespace SimpleTaskSystem.People
 {
     /// <summary>
     /// Represents a Person entity.
-    /// 
+    ///  继承基类 Entity  包含一个ID属性，不同ID类型可以继承不同类 Task类继承自Entity<long>
     /// It inherits from <see cref="Entity"/> class (Optionally can implement <see cref="IEntity"/> directly).
     /// </summary>
     [Table("StsPeople")]

@@ -1,0 +1,2 @@
+ABP 基于EF|NHibernate 的angular|spa项目 
+必须在.net 4.6.1以上

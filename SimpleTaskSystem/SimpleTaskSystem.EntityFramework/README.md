@@ -9,7 +9,7 @@ NHibernate specific codes are placed in this seperated class library. Thus, our 
 
 
 系统仓储层：
-     Code First EF 数据迁移生成数据库表
+     Code First EF 数据迁移生成数据库表（实体和数据库表同步）
 	 实现仓储接口的仓储基类，及基类扩展
 	 仓储类通过DBContext与数据库建立联系
 
@@ -62,6 +62,7 @@ NHibernate specific codes are placed in this seperated class library. Thus, our 
 
 	常见问题：
 	一.Update-Database时出现下面的错误，
+	原因：未设置启动项目，以哪个启动项目的config文件中的连接来连接。
 	在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: SQL Network Interfaces, error: 26 - 定位指定的服务器/实例时出错) 。
 
 	曾经自己也遇到过一次，不过同事遇到很多次，也使用了很多方法解决，比如端口的设置问题，等等，反正后来也是稀里糊涂地解决了。

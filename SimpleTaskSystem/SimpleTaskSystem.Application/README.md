@@ -25,6 +25,7 @@ DTO
 			_otherRepository = otherRepository;
 	}
 	//其他应用业务方法创建
+使用仓储进行数据库操作，它通往构造函数注入仓储对象的引用
 
 例如：
  IUserAppService:IAsyncCrudAppService<T>  
@@ -41,3 +42,7 @@ DTO
 		public string Name { get; set; } //默认效验
 
 DTO功能:数据传输对象，数据库出来数据的搬运工,（1）具有搬运功能载体（2）转换处理到目标地点不兼容的数据结构（3）隔离应用于数据库之间直接访问
+
+
+三.GetXXXXInput和GetTasksOutput
+两个包含DT的对象，用于UI和服务直接交互。
