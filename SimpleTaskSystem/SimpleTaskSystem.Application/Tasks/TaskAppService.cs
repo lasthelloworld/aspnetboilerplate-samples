@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using AutoMapper;
@@ -89,10 +90,35 @@ namespace SimpleTaskSystem.Tasks
             _taskRepository.Insert(task);
         }
 
+        /// <summary>
+        /// 根据TaskId删除任务
+        /// </summary>
+        /// <param name="input"></param>
         public void DeleteTaskById(DeleteTaskInput input)
         {
             Logger.Info("删除一个任务 for input:"+input);
             _taskRepository.Delete(input.TaskId);
         }
+
+        public MsgTaskOutput DeleteTasks(TaskListInput input)
+        {
+            Logger.Info("删除一些任务 for input: " + input);
+            var delList = input.Tasks;//引用Linq
+            int step = 100;
+            var pc = delList.Count / step;
+            if (delList.Count % step > 0)
+            {
+                pc++;
+            }
+            for (int i = 0; i < pc; i++)
+            {
+               var list = delList.Skip(i * step).Take(step);
+
+            }
+
+            return new MsgTaskOutput { };
+
+        }
+
     }
 }

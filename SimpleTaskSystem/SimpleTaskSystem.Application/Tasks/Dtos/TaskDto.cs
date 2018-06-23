@@ -18,6 +18,9 @@ namespace SimpleTaskSystem.Tasks.Dtos
 
         public byte State { get; set; }
 
+        //≈–∂œ «∑Ò—°÷–
+        public bool IsSelect { get; set; }
+
         //This method is just used by the Console Application to list tasks
         public override string ToString()
         {

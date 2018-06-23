@@ -6,6 +6,7 @@
             <!-- Title -->
             <h3 class="panel-title col-xs-6">
                 @L("TaskList") - <span>{{vm.getTaskCountText()}}</span>
+                <span class="glyphicon glyphicon-remove" ng-click="vm.deleteTaskState()"></span>
             </h3>
             
             <!-- Task state combobox -->
@@ -29,6 +30,7 @@
                 <span class="task-assignedto">{{task.assignedPersonName}}</span>
             </span>
             <span class="task-creationtime">{{task.creationTime | momentFromNow}}</span>
+            <input type="checkbox" name="taskSelect" ng-model="task.isSelect" />
         </div>
     </ul>
 

@@ -48,6 +48,27 @@
             vm.getTaskCountText = function () {
                 return abp.utils.formatString(vm.localize('Xtasks'), vm.tasks.length);
             };
+
+            //删除选中的tasks
+            vm.deleteTaskState = function () {
+                var selectList = angular.element.grep(vm.tasks, function (item, index, arr) {
+                    return item.isSelect;
+                });
+                //taskService.deleteTaskById({
+                //    taskId: (selectList.length>0)?selectList[0].id:null
+                //}).then(function () {
+                //    abp.notify.success("删除成功");
+                //    vm.refreshTasks();
+                //});
+                taskService.deleteTasks({
+                    tasks: selectList
+                }).then(function (msg) {
+                    abp.notify.info("删除成功");
+                    vm.refreshTasks();
+                })
+            }
+
+           
         }
     ]);
 })();

@@ -22,5 +22,6 @@ namespace SimpleTaskSystem.Tasks
 
         void DeleteTaskById(DeleteTaskInput input);
 
+        MsgTaskOutput DeleteTasks(TaskListInput input);
     }
 }
