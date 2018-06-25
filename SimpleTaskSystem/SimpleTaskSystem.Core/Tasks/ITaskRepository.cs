@@ -22,5 +22,12 @@ namespace SimpleTaskSystem.Tasks
         /// <param name="state">Optional state filter. If it's null, not filtered.</param>
         /// <returns>List of found tasks</returns>
         List<Task> GetAllWithPeople(int? assignedPersonId, TaskState? state);
+
+        /// <summary>
+        /// 根据选中的ID集合删除多个任务
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        void DeleteTasks(List<long> ids);
     }
 }

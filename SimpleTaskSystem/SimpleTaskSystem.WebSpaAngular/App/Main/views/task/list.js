@@ -54,21 +54,22 @@
                 var selectList = angular.element.grep(vm.tasks, function (item, index, arr) {
                     return item.isSelect;
                 });
-                //taskService.deleteTaskById({
-                //    taskId: (selectList.length>0)?selectList[0].id:null
-                //}).then(function () {
-                //    abp.notify.success("删除成功");
-                //    vm.refreshTasks();
-                //});
-                taskService.deleteTasks({
-                    tasks: selectList
-                }).then(function (msg) {
-                    abp.notify.info("删除成功");
-                    vm.refreshTasks();
-                })
-            }
-
-           
+                if (selectList.length == 1) {
+                    taskService.deleteTaskById({
+                        taskId: (selectList.length > 0) ? selectList[0].id : null
+                    }).then(function () {
+                        abp.notify.success("删除成功");
+                        vm.refreshTasks();
+                    });
+                } else {
+                    taskService.deleteTasks({
+                        tasks: selectList
+                    }).then(function (msg) {
+                        abp.notify.info("批量删除成功");
+                        vm.refreshTasks();
+                    });
+                }
+            } 
         }
     ]);
 })();

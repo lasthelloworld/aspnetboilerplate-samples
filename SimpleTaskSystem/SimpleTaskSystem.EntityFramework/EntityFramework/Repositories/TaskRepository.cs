@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using Abp.EntityFramework;
 using SimpleTaskSystem.Tasks;
 
@@ -14,6 +16,12 @@ namespace SimpleTaskSystem.EntityFramework.Repositories
         public TaskRepository(IDbContextProvider<SimpleTaskSystemDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
+        }
+
+        public void DeleteTasks(List<long> ids)
+        {
+            Expression<Func<Task, bool>> expression = o=>ids.Contains<long>(o.Id);
+            Delete(expression);
         }
 
         public List<Task> GetAllWithPeople(int? assignedPersonId, TaskState? state)

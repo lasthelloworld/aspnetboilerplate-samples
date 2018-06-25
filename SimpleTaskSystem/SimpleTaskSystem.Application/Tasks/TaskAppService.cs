@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
@@ -104,6 +105,7 @@ namespace SimpleTaskSystem.Tasks
         {
             Logger.Info("删除一些任务 for input: " + input);
             var delList = input.Tasks;//引用Linq
+            List<long> ids = new List<long>();
             int step = 100;
             var pc = delList.Count / step;
             if (delList.Count % step > 0)
@@ -113,8 +115,12 @@ namespace SimpleTaskSystem.Tasks
             for (int i = 0; i < pc; i++)
             {
                var list = delList.Skip(i * step).Take(step);
-
+                foreach (var item in list)
+                {
+                    ids.Insert(ids.Count,item.Id);
+                }
             }
+            _taskRepository.DeleteTasks(ids);
 
             return new MsgTaskOutput { };
 

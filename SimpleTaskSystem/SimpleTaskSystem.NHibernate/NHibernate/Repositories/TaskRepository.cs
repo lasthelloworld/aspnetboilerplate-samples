@@ -22,6 +22,11 @@ namespace SimpleTaskSystem.NHibernate.Repositories
         {
         }
 
+        public bool DeleteTasks(int[] ids)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<Task> GetAllWithPeople(int? assignedPersonId, TaskState? state)
         {
             //In repository methods, we do not deal with create/dispose DB connections (Session) and transactions. ABP handles it.

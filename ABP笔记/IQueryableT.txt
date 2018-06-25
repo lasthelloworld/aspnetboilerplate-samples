@@ -1,0 +1,4 @@
+IQueryable<T>允许延迟执行。它会直到你调用ToList方法或在forEach循环上(或是一些存取已查询的对象方法)使用IQueryable<T>时,才会实际执行数据库的查询
+
+
+
