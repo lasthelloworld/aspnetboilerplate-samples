@@ -21,6 +21,9 @@ NHibernate specific codes are placed in this seperated class library. Thus, our 
 二.仓储类通过DBContext与数据库建立联系
 数据库操作实体框架工作单元和存储库模式的组合，创建实体操作接口IDbSet
 
+仓储类应该是无状态的。这意味着, 你不该定义仓储等级的状态对象并且仓储方法的调用也不应该影响到其它调用。　　　
+当仓储可以使用相根据注入，尽可较少或是不相根据于其它服务。　
+
 
 三.EF 6数据迁移 字符串连接配置
 
